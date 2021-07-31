@@ -1,0 +1,20 @@
+{
+  "name": "taskyfire",
+  "version": "1.0.0",
+  "description": "Task and time manager",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vasv-maksim/taskyfire.git"
+  },
+  "author": "vasev maksim",
+  "license": "MIT",
+  "homepage": "https://github.com/vasv-maksim/taskyfire/blob/main/README.md",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {}
+}

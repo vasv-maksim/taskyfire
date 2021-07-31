@@ -1,2 +1,5 @@
 # taskyfire
-Kanban task&amp;&amp;time manager system
+Kanban система для учёта задач и времени
+
+### Запуск: 
+Установить зависимости, из корневой папки выполнить команду: `npm run start`
