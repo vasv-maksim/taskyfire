@@ -2,11 +2,11 @@
   "name": "taskyfire",
   "version": "1.0.0",
   "description": "Task and time manager",
-  "main": "index.js",
+  "main": "index.ts",
   "private": false,
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon index.js",
+    "server": "nodemon",
     "client": "npm start --prefix client",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix"
@@ -19,9 +19,11 @@
   "license": "MIT",
   "homepage": "https://github.com/vasv-maksim/taskyfire/blob/main/README.md",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "ts-node": "^10.1.0"
   },
   "devDependencies": {
+    "@types/node": "^16.4.8",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "concurrently": "^6.2.0",
