@@ -16,7 +16,7 @@ async function main() {
   }
 }
 
-if (process.env.NODE_ENV === 'prod') {
+if (process.env.DEV_MOD === 'prod') {
   console.log('Do something as prod');
 }
 

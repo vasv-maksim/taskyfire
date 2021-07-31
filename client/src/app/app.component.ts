@@ -8,12 +8,10 @@ declare const TEST_ENV_VAR;
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'client';
-
-  public version = '[AIV]{version} / {date}[/AIV]'; // WebpackAutoInject
+  public version = 'version';
 
   constructor() {
     // eslint-disable-next-line no-console
-    console.log('TEST_ENV_VAR:', TEST_ENV_VAR);
+    console.log('Приложение запущено в режиме:', TEST_ENV_VAR);
   }
 }
