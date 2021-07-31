@@ -4,6 +4,11 @@ const app = express();
 
 async function main() {
   try {
+    app.get('/', (req, res) => {
+      res.status(200).json({
+        message: 'Success',
+      })
+    })
     console.log('Do something');
   }
   catch (e) {
