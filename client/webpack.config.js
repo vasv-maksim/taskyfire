@@ -1,16 +1,16 @@
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const WebpackAutoInject = require('webpack-auto-inject-version');
+// const WebpackAutoInject = require('webpack-auto-inject-version');
 
 const plugins = [
-  new WebpackAutoInject({ // Версии
-    SILENT: true,
-    componentsOptions: {
-      InjectByTag: {
-        dateFormat: 'dd-mm-yyyy',
-      },
-    },
-  }),
+  // new WebpackAutoInject({ // Версии
+  //   SILENT: true,
+  //   componentsOptions: {
+  //     InjectByTag: {
+  //       dateFormat: 'dd-mm-yyyy',
+  //     },
+  //   },
+  // }),
   new webpack.DefinePlugin({ // Переменные окружения
     TEST_ENV_VAR: JSON.stringify('TEST_VAR'),
   }),
@@ -27,5 +27,5 @@ if (devMode) {
 }
 
 module.exports = {
-  // plugins,
+  plugins,
 };
