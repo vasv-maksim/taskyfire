@@ -1,26 +1,21 @@
 const express = require('express');
+const { graphqlHTTP } = require('express-graphql');
+const { schema } = require('./server/schema');
+const { resolver } = require('./server/resolver');
 
 const app = express();
 
-async function main() {
-  try {
-    app.get('/', (req, res) => {
-      res.status(200).json({
-        message: 'Success',
-      });
-    });
-    console.log('Do something');
-  } catch (e) {
-    console.log('Error:', e.message);
-    process.exit(1);
-  }
-}
+app.use('/graphql', graphqlHTTP({
+  schema,
+  rootValue: resolver,
+  graphiql: true,
+}));
 
 if (process.env.DEV_MOD === 'prod') {
+  // eslint-disable-next-line no-console
   console.log('Do something as prod');
 }
 
 const PORT = process.env.PORT || 5000;
+// eslint-disable-next-line no-console
 app.listen(PORT, () => { console.log(`Server run on port ${PORT}...`); });
-
-main();

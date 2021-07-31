@@ -19,7 +19,10 @@
   "license": "MIT",
   "homepage": "https://github.com/vasv-maksim/taskyfire/blob/main/README.md",
   "dependencies": {
+    "apollo-server-express": "^3.1.1",
     "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.1",
     "ts-node": "^10.1.0"
   },
   "devDependencies": {
