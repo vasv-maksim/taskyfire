@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Task and time manager",
   "main": "index.js",
+  "private": false,
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon index.js",
@@ -14,7 +15,7 @@
     "type": "git",
     "url": "https://github.com/vasv-maksim/taskyfire.git"
   },
-  "author": "vasev maksim",
+  "author": "Vasev Maksim <vasv_maksim@rambler.ru>",
   "license": "MIT",
   "homepage": "https://github.com/vasv-maksim/taskyfire/blob/main/README.md",
   "dependencies": {
