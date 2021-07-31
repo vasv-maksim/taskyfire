@@ -1,0 +1,8 @@
+@import 'src/global-styles/z-indexes';
+@import 'src/global-styles/theme_variables';
+
+.app {
+  background-color: $accent;
+  width: 100vw;
+  height: 100vh;
+}
