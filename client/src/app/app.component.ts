@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-declare const TEST_ENV_VAR;
+declare const TEST_ENV_VAR: string;
 
 @Component({
   selector: 'app-root',
