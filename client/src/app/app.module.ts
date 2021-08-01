@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { KanbanModule } from './kanban-module/kanban.module';
+import { SharedModule } from './shared-module/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { KanbanModule } from './kanban-module/kanban.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
     KanbanModule,
     StoreModule.forRoot({}),
     !environment.production ? StoreDevtoolsModule.instrument({

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "cross-env DEV_MOD=dev ng serve --proxy-config proxy.conf.json",
+    "prodmod": "cross-env DEV_MOD=prod ng serve --prod --aot --proxy-config proxy.conf.json ",
     "build": "cross-env DEV_MOD=prod ng build --prod --aot --build-optimizer",
     "test": "ng test",
     "e2e": "ng e2e"

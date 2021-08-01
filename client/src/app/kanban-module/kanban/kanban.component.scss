@@ -1,0 +1,42 @@
+@import 'src/global-styles/theme_variables';
+
+.kanban {
+  background-image: url('../../../assets/back.png');
+  background-repeat: repeat;
+  height: 100%;
+
+  &__column {
+    height: 90%;
+    width: 150px;
+  
+    border: 1px solid $primary;
+    border-radius: 5px;
+    box-shadow: 0 0 10px $accent;
+  
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  
+    overflow: hidden;
+    background-color: $text;
+  }
+
+  &__handle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px 10px 5px;
+    cursor: move;
+    background-color: $primary;
+    height: 10px;
+    z-index: 2;
+  }
+
+  &__title {
+    font-size: 12px;
+    font-weight: 600;
+    color: $text;
+  }
+}
