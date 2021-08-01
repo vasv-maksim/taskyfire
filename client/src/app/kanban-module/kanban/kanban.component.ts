@@ -8,4 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class KanbanComponent implements OnInit {
   ngOnInit(): void {
   }
+
+  public closePanel($event: Event): void {
+    $event.stopPropagation();
+  }
 }

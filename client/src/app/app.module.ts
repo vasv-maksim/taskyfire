@@ -9,10 +9,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { KanbanModule } from './kanban-module/kanban.module';
 import { SharedModule } from './shared-module/shared.module';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
