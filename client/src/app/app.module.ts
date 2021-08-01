@@ -7,6 +7,8 @@ import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { KanbanModule } from './kanban-module/kanban.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    KanbanModule,
     StoreModule.forRoot({}),
     !environment.production ? StoreDevtoolsModule.instrument({
       maxAge: 25,

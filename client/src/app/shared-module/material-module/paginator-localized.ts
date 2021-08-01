@@ -10,7 +10,7 @@ export class PaginatorLocalized extends MatPaginatorIntl {
     this.itemsPerPageLabel = 'Количество строк';
   }
 
-  getRangeLabel = function (page, pageSize, length) {
+  public getRangeLabel = function (page: number, pageSize: number, length: number): string {
     if (length === 0 || pageSize === 0) {
       return `0 od ${length}`;
     }
