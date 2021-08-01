@@ -6,7 +6,7 @@
   "private": false,
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon",
+    "server": "ts-node index.ts",
     "client": "npm start --prefix client",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix"
