@@ -1,11 +1,5 @@
 <div class="kanban">
-  <div class="kanban__column" cdkDrag cdkDragBoundary=".kanban"
-    [cdkDragFreeDragPosition]="{x: 10, y: 10}">
-    <div class="kanban__handle" cdkDragHandle>
-      <div class="kanban__title">Backlog</div>
-      <button mat-icon-button (click)="closePanel($event)">
-        <mat-icon class="kanban__icon">close</mat-icon>
-      </button>
-    </div>
-  </div>
+  <ng-container *ngFor="let columnName of columns">
+    <tkr-column [title]="columnName"></tkr-column>
+  </ng-container>
 </div>
