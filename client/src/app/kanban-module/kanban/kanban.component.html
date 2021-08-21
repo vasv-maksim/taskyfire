@@ -1,5 +1,22 @@
 <div class="kanban">
-  <ng-container *ngFor="let columnName of columns">
-    <tkr-column [title]="columnName"></tkr-column>
-  </ng-container>
+	<div class="column" *ngFor="let column of columns"> 
+    <div class="column__header">
+      <div class="column__title">{{column.title}}</div>
+    </div>
+    <div cdkDropList class="column__content" 
+      id={{column.id}}
+      [cdkDropListData]="column.tasks" 
+      (cdkDropListDropped)="dropTask($event)"
+      [cdkDropListConnectedTo]="getConnectedList()">
+      <div class="tasks">
+        <div class="tasks__list">
+          <div class="tasks__task" 
+            *ngFor="let task of column.tasks" 
+            cdkDrag [cdkDragData]="task">
+            {{task.name}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
