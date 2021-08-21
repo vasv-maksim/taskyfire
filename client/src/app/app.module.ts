@@ -21,7 +21,7 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     SharedModule,
     KanbanModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({ }),
     !environment.production ? StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
