@@ -4,7 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { KanbanComponent } from './kanban/kanban.component';
 import { SharedModule } from '../shared-module/shared.module';
 import { reducer } from './store/kanban.reducer';
-import { kanban } from './store/kanban.models';
+import { kanbanFeatureKey } from './store/kanban.models';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { kanban } from './store/kanban.models';
   ],
   imports: [
     SharedModule,
-    StoreModule.forFeature(kanban, reducer),
+    StoreModule.forFeature(kanbanFeatureKey, reducer),
   ],
   exports: [
     KanbanComponent,

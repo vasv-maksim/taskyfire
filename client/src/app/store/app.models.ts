@@ -1,5 +1,6 @@
-import { kanban, KanbanState } from '../kanban-module/store/kanban.models';
+import { kanbanFeatureKey } from '../kanban-module/store/kanban.models';
+import { KanbanState } from '../kanban-module/store/kanban.reducer';
 
 export interface AppState {
-  [kanban]: KanbanState;
+  [kanbanFeatureKey]: KanbanState;
 }

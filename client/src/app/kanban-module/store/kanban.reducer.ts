@@ -1,68 +1,23 @@
 import { createReducer, on, Action } from '@ngrx/store';
 
 import { KanbanActions } from './kanban.action';
-import { KanbanState } from './kanban.models';
+import { cardInitialState, CardState } from './entities/card.entity';
+import { columnInitialState, ColumnState } from './entities/column.entity';
+import { columnsFeatureKey, cardsFeatureKey } from './kanban.models';
+
+export interface KanbanState {
+  [columnsFeatureKey]: ColumnState;
+  [cardsFeatureKey]: CardState;
+}
 
 export const initialState: KanbanState = {
-  columns: [
-    {
-      id: '1',
-      title: 'Backlog',
-    },
-    {
-      id: '2',
-      title: 'SelectedForDev',
-    },
-    {
-      id: '3',
-      title: 'InProgress',
-    },
-    {
-      id: '4',
-      title: 'Review',
-    },
-    {
-      id: '5',
-      title: 'Done',
-    },
-  ],
-  cards: [
-    {
-      id: '1',
-      name: 'Task №1',
-      columnId: '1',
-    },
-    {
-      id: '2',
-      name: 'Task №2',
-      columnId: '1',
-    },
-    {
-      id: '3',
-      name: 'Task №3',
-      columnId: '1',
-    },
-    {
-      id: '4',
-      name: 'Task №4',
-      columnId: '2',
-    },
-    {
-      id: '5',
-      name: 'Task №5',
-      columnId: '2',
-    },
-    {
-      id: '6',
-      name: 'Task №6',
-      columnId: '3',
-    },
-  ],
+  [columnsFeatureKey]: columnInitialState,
+  [cardsFeatureKey]: cardInitialState,
 };
 
 const kanbanReducer = createReducer(
   initialState,
-  on(KanbanActions.test, (state: KanbanState): KanbanState => ({ ...state })),
+  on(KanbanActions.dropCard, (state: KanbanState): KanbanState => ({ ...state })),
 );
 
 export function reducer(state: KanbanState, action: Action) {

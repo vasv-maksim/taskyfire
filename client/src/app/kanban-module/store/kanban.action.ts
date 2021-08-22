@@ -1,5 +1,6 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
+import { Drop } from './kanban.models';
 
 export class KanbanActions {
-  public static test = createAction('[Kanban] Test');
+  public static dropCard = createAction('[Kanban] dropCard', props<{ drop: Drop}>());
 }

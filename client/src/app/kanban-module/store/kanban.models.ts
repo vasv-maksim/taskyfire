@@ -1,8 +1,3 @@
-export interface KanbanState {
-  columns: Column[];
-  cards: Card[];
-}
-
 export interface Column {
   id: Uuid;
   title: string;
@@ -14,4 +9,11 @@ export interface Card {
   name: string;
 }
 
-export const kanban = 'kanban';
+export interface Drop {
+  cardId: Uuid;
+  columnId: Uuid;
+}
+
+export const kanbanFeatureKey = 'kanban';
+export const columnsFeatureKey = 'columns';
+export const cardsFeatureKey = 'cards';
