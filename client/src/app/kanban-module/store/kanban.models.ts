@@ -1,14 +1,16 @@
 export interface KanbanState {
   columns: Column[];
+  cards: Card[];
 }
 
 export interface Column {
-  id: string;
+  id: Uuid;
   title: string;
-  tasks: Task[];
 }
 
-export interface Task {
+export interface Card {
+  id: Uuid;
+  columnId: Uuid;
   name: string;
 }
 

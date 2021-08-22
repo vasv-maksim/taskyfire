@@ -5,15 +5,15 @@
     </div>
     <div cdkDropList class="column__content" 
       id={{column.id}}
-      [cdkDropListData]="column.tasks" 
-      (cdkDropListDropped)="dropTask($event)"
+      [cdkDropListData]="getColumnCards(column.id)" 
+      (cdkDropListDropped)="dropCard($event)"
       [cdkDropListConnectedTo]="getConnectedList()">
-      <div class="tasks">
-        <div class="tasks__list">
-          <div class="tasks__task" 
-            *ngFor="let task of column.tasks" 
-            cdkDrag [cdkDragData]="task">
-            {{task.name}}
+      <div class="cards">
+        <div class="cards__list">
+          <div class="cards__card" 
+            *ngFor="let card of getColumnCards(column.id)" 
+            cdkDrag [cdkDragData]="card">
+            {{card.name}}
           </div>
         </div>
       </div>

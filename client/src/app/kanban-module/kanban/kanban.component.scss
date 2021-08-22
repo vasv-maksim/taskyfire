@@ -83,7 +83,7 @@
   }
 }
 
-.tasks {
+.cards {
   width: 400px;
   max-width: 100%;
   
@@ -91,7 +91,7 @@
     background: $text;
   }
 
-  &__task {
+  &__card {
     display: flex;
     flex-direction: row;
     align-items: center;

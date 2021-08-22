@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-
 import { Store } from '@ngrx/store';
+
 import { AppState } from 'src/app/store/app.models';
-import { Column } from '../store/kanban.models';
+import { Column, Card } from '../store/kanban.models';
 import { KanbanSelectors } from '../store/kanban.selectors';
 
 @Component({
@@ -14,10 +14,13 @@ import { KanbanSelectors } from '../store/kanban.selectors';
 export class KanbanComponent implements OnInit {
   public columns: Column[] = [];
 
+  public cards: Card[] = [];
+
   constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
     this.watchColumn();
+    this.watchCards();
   }
 
   private watchColumn(): void {
@@ -27,7 +30,18 @@ export class KanbanComponent implements OnInit {
       });
   }
 
-  public dropTask(event: CdkDragDrop<string[]>): void {
+  private watchCards(): void {
+    this.store.select(KanbanSelectors.cards)
+      .subscribe((next) => {
+        this.cards = next;
+      });
+  }
+
+  public getColumnCards(columnId: Uuid): Card[] {
+    return this.cards.filter((x) => x.columnId === columnId);
+  }
+
+  public dropCard(event: CdkDragDrop<string[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
