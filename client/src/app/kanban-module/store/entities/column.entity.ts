@@ -25,29 +25,4 @@ export const columnTotal = selectTotal;
 
 export interface ColumnState extends EntityState<Column> {}
 
-// const data = {
-//   columns: [
-//     {
-//       id: '1',
-//       title: 'Backlog',
-//     },
-//     {
-//       id: '2',
-//       title: 'SelectedForDev',
-//     },
-//     {
-//       id: '3',
-//       title: 'InProgress',
-//     },
-//     {
-//       id: '4',
-//       title: 'Review',
-//     },
-//     {
-//       id: '5',
-//       title: 'Done',
-//     },
-//   ],
-// };
-
 export const columnInitialState = columnAdapter.getInitialState();

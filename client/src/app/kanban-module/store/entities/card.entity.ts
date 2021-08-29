@@ -25,39 +25,4 @@ export const cardsTotal = selectTotal;
 
 export interface CardState extends EntityState<Card> {}
 
-// const data = {
-//   cards: [
-//     {
-//       id: '1',
-//       name: 'Task №1',
-//       columnId: '1',
-//     },
-//     {
-//       id: '2',
-//       name: 'Task №2',
-//       columnId: '1',
-//     },
-//     {
-//       id: '3',
-//       name: 'Task №3',
-//       columnId: '1',
-//     },
-//     {
-//       id: '4',
-//       name: 'Task №4',
-//       columnId: '2',
-//     },
-//     {
-//       id: '5',
-//       name: 'Task №5',
-//       columnId: '2',
-//     },
-//     {
-//       id: '6',
-//       name: 'Task №6',
-//       columnId: '3',
-//     },
-//   ],
-// };
-
 export const cardInitialState = cardAdapter.getInitialState({});
