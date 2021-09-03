@@ -1,5 +1,5 @@
 export {};
-const { cards, columns } = require('./test-data');
+const { cardsData, columnsData } = require('./test-data');
 
 type Uuid = string;
 
@@ -16,15 +16,15 @@ interface ICard {
 
 module.exports = {
   cards(): ICard[] {
-    return cards;
+    return cardsData;
   },
   cardById(id: Uuid): ICard[] {
-    return cards.find((x: ICard) => x.id === id);
+    return cardsData.filter((x: ICard) => x.id === id);
   },
   columns(): IColumn[] {
-    return columns;
+    return columnsData;
   },
   columnById(id: Uuid): IColumn[] {
-    return columns.find((x: IColumn) => x.id === id);
+    return columnsData.filter((x: IColumn) => x.id === id);
   },
 };

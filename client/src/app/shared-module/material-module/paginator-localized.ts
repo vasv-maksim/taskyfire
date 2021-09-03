@@ -10,6 +10,7 @@ export class PaginatorLocalized extends MatPaginatorIntl {
     this.itemsPerPageLabel = 'Количество строк';
   }
 
+  // eslint-disable-next-line func-names
   public getRangeLabel = function (page: number, pageSize: number, length: number): string {
     if (length === 0 || pageSize === 0) {
       return `0 od ${length}`;

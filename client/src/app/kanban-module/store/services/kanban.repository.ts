@@ -1,20 +1,48 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ApolloQueryResult } from '@apollo/client/core';
+import { Apollo, ApolloBase } from 'apollo-angular';
+
+import { gqlGetCards, gqlGetColumnById, gqlGetColumns } from 'src/codegen/kanban.gql';
+import { QGetCards } from 'src/codegen/generated/QGetCards';
+import { QGetColumns } from 'src/codegen/generated/QGetColumns';
+import { QGetColumn, QGetColumnVariables } from 'src/codegen/generated/QGetColumn';
+import { QGetCard, QGetCardVariables } from 'src/codegen/generated/QGetCard';
+import { gqlGetCardById } from '../../../../codegen/kanban.gql';
 
 @Injectable({
   providedIn: 'root',
 })
 export class KanbanRepository {
-  private url = '/';
+  private apollo: ApolloBase;
 
-  constructor(private http: HttpClient) { }
-
-  public loadColumns(): Observable<any> {
-    return this.http.get<any>(this.url);
+  constructor(private apolloClient: Apollo) {
+    this.apollo = this.apolloClient.default();
   }
 
-  public loadCards(): Observable<any> {
-    return this.http.get<any>(this.url);
+  public loadCards(): Observable<ApolloQueryResult<QGetCards>> {
+    return this.apollo.query<QGetCards>({ query: gqlGetCards });
+  }
+
+  public loadCardById(id: Uuid): Observable<ApolloQueryResult<QGetCard>> {
+    return this.apollo.query<QGetCard, QGetCardVariables>({
+      query: gqlGetCardById,
+      variables: {
+        id,
+      },
+    });
+  }
+
+  public loadColumns(): Observable<ApolloQueryResult<QGetColumns>> {
+    return this.apollo.query<QGetColumns>({ query: gqlGetColumns });
+  }
+
+  public loadColumnById(id: Uuid): Observable<ApolloQueryResult<QGetColumn>> {
+    return this.apollo.query<QGetColumn, QGetColumnVariables>({
+      query: gqlGetColumnById,
+      variables: {
+        id,
+      },
+    });
   }
 }

@@ -22,9 +22,17 @@ const kanbanReducer = createReducer(
     ...state,
     columns: columnAdapter.addMany(columns, state.columns),
   })),
+  on(KanbanActions.loadColumnByIdSucc, (state, { column }) => ({
+    ...state,
+    columns: columnAdapter.addOne(column, state.columns),
+  })),
   on(KanbanActions.loadCardsSucc, (state, { cards }) => ({
     ...state,
     cards: cardAdapter.addMany(cards, state.cards),
+  })),
+  on(KanbanActions.loadCardByIdSucc, (state, { card }) => ({
+    ...state,
+    cards: cardAdapter.addOne(card, state.cards),
   })),
 );
 

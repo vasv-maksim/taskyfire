@@ -3,7 +3,9 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { Store } from '@ngrx/store';
 
 import { AppState } from 'src/app/store/app.models';
-import { Column, Card } from '../store/kanban.models';
+import { QGetColumns_columns } from 'src/codegen/generated/QGetColumns';
+import { QGetCards_cards } from 'src/codegen/generated/QGetCards';
+import { KanbanActions } from '../store/kanban.action';
 import { KanbanSelectors } from '../store/kanban.selectors';
 
 @Component({
@@ -12,13 +14,15 @@ import { KanbanSelectors } from '../store/kanban.selectors';
   styleUrls: ['./kanban.component.scss'],
 })
 export class KanbanComponent implements OnInit {
-  public columns: Column[] = [];
+  public columns: QGetColumns_columns[] = [];
 
-  public cards: Card[] = [];
+  public cards: QGetCards_cards[] = [];
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
+    this.store.dispatch(KanbanActions.loadColumns());
+    this.store.dispatch(KanbanActions.loadCards());
     this.watchColumn();
     this.watchCards();
   }
@@ -37,7 +41,7 @@ export class KanbanComponent implements OnInit {
       });
   }
 
-  public getColumnCards(columnId: Uuid): Card[] {
+  public getColumnCards(columnId: Uuid): QGetCards_cards[] {
     return this.cards.filter((x) => x.columnId === columnId);
   }
 

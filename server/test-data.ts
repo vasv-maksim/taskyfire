@@ -1,4 +1,4 @@
-const columns = [
+const columnsData = [
   {
     id: '1',
     name: 'Backlog',
@@ -21,7 +21,7 @@ const columns = [
   },
 ];
 
-const cards = [
+const cardsData = [
   {
     id: '1',
     name: 'Task №1',
@@ -55,6 +55,6 @@ const cards = [
 ];
 
 module.exports = {
-  cards,
-  columns,
+  cardsData,
+  columnsData,
 };

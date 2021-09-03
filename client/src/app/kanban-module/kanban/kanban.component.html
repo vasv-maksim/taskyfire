@@ -1,7 +1,7 @@
 <div class="kanban">
 	<div class="column" *ngFor="let column of columns"> 
     <div class="column__header">
-      <div class="column__title">{{column.title}}</div>
+      <div class="column__title">{{column.name}}</div>
     </div>
     <div cdkDropList class="column__content" 
       id={{column.id}}

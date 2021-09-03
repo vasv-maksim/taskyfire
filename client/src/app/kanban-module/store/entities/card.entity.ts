@@ -1,12 +1,11 @@
 import { EntityAdapter, createEntityAdapter, EntityState } from '@ngrx/entity';
+import { QGetCards_cards } from 'src/codegen/generated/QGetCards';
 
-import { Card } from '../kanban.models';
+export const selectId = (card: QGetCards_cards): Uuid => card.id;
 
-export const selectId = (card: Card): Uuid => card.id;
+export const sortComparer = (a: QGetCards_cards, b: QGetCards_cards): number => a.name.localeCompare(b.name);
 
-export const sortComparer = (a: Card, b: Card): number => a.name.localeCompare(b.name);
-
-export const cardAdapter: EntityAdapter<Card> = createEntityAdapter<Card>({
+export const cardAdapter: EntityAdapter<QGetCards_cards> = createEntityAdapter<QGetCards_cards>({
   selectId,
   sortComparer,
 });
@@ -23,6 +22,6 @@ export const cardsEntities = selectEntities;
 export const allCards = selectAll;
 export const cardsTotal = selectTotal;
 
-export interface CardState extends EntityState<Card> {}
+export interface CardState extends EntityState<QGetCards_cards> {}
 
 export const cardInitialState = cardAdapter.getInitialState({});

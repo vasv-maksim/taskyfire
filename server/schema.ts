@@ -11,24 +11,24 @@ const { Card, Column } = require('./types');
 const rootQuery = new GraphQLObjectType({
   name: 'RootQuery',
   fields: {
-    getTasks: {
-      type: new GraphQLList(Card),
+    cards: {
+      type: new GraphQLNonNull(GraphQLList(new GraphQLNonNull(Card))),
       description: 'List of all cards',
-      resolve: () => cards,
+      resolve: () => cards(),
     },
-    getTaskById: {
-      type: Card,
+    card: {
+      type: new GraphQLNonNull(Card),
       description: 'Single card by its Uuid',
       args: { id: { type: GraphQLNonNull(GraphQLString) } },
       resolve: (parent: any, args: any) => cardById(args.id),
     },
-    getColumns: {
-      type: new GraphQLList(Column),
+    columns: {
+      type: new GraphQLNonNull(GraphQLList(new GraphQLNonNull(Column))),
       description: 'List of all columns',
-      resolve: () => columns,
+      resolve: () => columns(),
     },
-    getColumnById: {
-      type: Column,
+    column: {
+      type: new GraphQLNonNull(Column),
       description: 'Single column by its Uuid',
       args: { id: { type: GraphQLNonNull(GraphQLString) } },
       resolve: (parent: any, args: any) => columnById(args.id),

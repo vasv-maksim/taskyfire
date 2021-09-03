@@ -1,12 +1,11 @@
 import { EntityAdapter, createEntityAdapter, EntityState } from '@ngrx/entity';
+import { QGetColumns_columns } from 'src/codegen/generated/QGetColumns';
 
-import { Column } from '../kanban.models';
+export const selectId = (card: QGetColumns_columns): Uuid => card.id;
 
-export const selectId = (card: Column): Uuid => card.id;
+export const sortComparer = (a: QGetColumns_columns, b: QGetColumns_columns): number => a.name.localeCompare(b.name);
 
-export const sortComparer = (a: Column, b: Column): number => a.title.localeCompare(b.title);
-
-export const columnAdapter: EntityAdapter<Column> = createEntityAdapter<Column>({
+export const columnAdapter: EntityAdapter<QGetColumns_columns> = createEntityAdapter<QGetColumns_columns>({
   selectId,
   sortComparer,
 });
@@ -23,6 +22,6 @@ export const columnEntities = selectEntities;
 export const allColumn = selectAll;
 export const columnTotal = selectTotal;
 
-export interface ColumnState extends EntityState<Column> {}
+export interface ColumnState extends EntityState<QGetColumns_columns> {}
 
 export const columnInitialState = columnAdapter.getInitialState();
