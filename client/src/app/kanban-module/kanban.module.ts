@@ -7,7 +7,7 @@ import { SharedModule } from '../shared-module/shared.module';
 import { reducer } from './store/kanban.reducer';
 import { kanbanFeatureKey } from './store/kanban.models';
 import { KanbanEffects } from './store/kanban.effects';
-import { KanbanDumpComponent } from './kanban-dump/kanban-dump.component';
+import { KanbanDumpComponent } from './kanban/kanban-dump/kanban-dump.component';
 
 @NgModule({
   declarations: [
