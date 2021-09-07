@@ -1,22 +1,5 @@
-<div class="kanban">
-	<div class="column" *ngFor="let column of columns"> 
-    <div class="column__header">
-      <div class="column__title">{{column.name}}</div>
-    </div>
-    <div cdkDropList class="column__content" 
-      id={{column.id}}
-      [cdkDropListData]="getColumnCards(column.id)" 
-      (cdkDropListDropped)="dropCard($event)"
-      [cdkDropListConnectedTo]="getConnectedList()">
-      <div class="cards">
-        <div class="cards__list">
-          <div class="cards__card" 
-            *ngFor="let card of getColumnCards(column.id)" 
-            cdkDrag [cdkDragData]="card">
-            {{card.name}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<tkr-kanban-dump 
+  [cards]="cards | async" 
+  [columns]="columns | async" 
+  ($event)="dropCard">
+</tkr-kanban-dump>

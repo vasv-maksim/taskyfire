@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 import { AppState } from 'src/app/store/app.models';
 import { QGetColumns_columns } from 'src/codegen/generated/QGetColumns';
@@ -14,49 +14,19 @@ import { KanbanSelectors } from '../store/kanban.selectors';
   styleUrls: ['./kanban.component.scss'],
 })
 export class KanbanComponent implements OnInit {
-  public columns: QGetColumns_columns[] = [];
+  public readonly columns: Observable<QGetColumns_columns[]> = this.store.select(KanbanSelectors.columns);
 
-  public cards: QGetCards_cards[] = [];
+  public readonly cards: Observable<QGetCards_cards[]> = this.store.select(KanbanSelectors.cards);
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
     this.store.dispatch(KanbanActions.loadColumns());
     this.store.dispatch(KanbanActions.loadCards());
-    this.watchColumn();
-    this.watchCards();
   }
 
-  private watchColumn(): void {
-    this.store.select(KanbanSelectors.columns)
-      .subscribe((next) => {
-        this.columns = next;
-      });
-  }
-
-  private watchCards(): void {
-    this.store.select(KanbanSelectors.cards)
-      .subscribe((next) => {
-        this.cards = next;
-      });
-  }
-
-  public getColumnCards(columnId: Uuid): QGetCards_cards[] {
-    return this.cards.filter((x) => x.columnId === columnId);
-  }
-
-  public dropCard(event: CdkDragDrop<string[]>): void {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
-    }
-  }
-
-  public getConnectedList(): string[] {
-    return this.columns.map((x) => x.id);
+  public dropCard(): void {
+    // this.store.dispatch(KanbanActions.dropCard);
+    // console.log('smart');
   }
 }
