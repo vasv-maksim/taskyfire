@@ -1,17 +1,17 @@
 <div class="kanban">
-	<div class="column" *ngFor="let column of columns"> 
+	<div class="column" *ngFor="let group of groups"> 
     <div class="column__header">
-      <div class="column__title">{{column.name}}</div>
+      <div class="column__title">{{group .name}}</div>
     </div>
     <div cdkDropList class="column__content" 
-      id={{column.id}}
-      [cdkDropListData]="getColumnCards(column.id)" 
+      id={{group.id}}
+      [cdkDropListData]="group.cards" 
       (cdkDropListDropped)="dropCardDump($event)"
       [cdkDropListConnectedTo]="getConnectedList()">
       <div class="cards">
         <div class="cards__list">
           <div class="cards__card" 
-            *ngFor="let card of getColumnCards(column.id)" 
+            *ngFor="let card of group.cards" 
             cdkDrag [cdkDragData]="card">
             {{card.name}}
           </div>
