@@ -5,12 +5,14 @@ import { map, mergeMap, catchError } from 'rxjs/operators';
 
 import { KanbanActions } from './kanban.action';
 import { KanbanRepository } from './services/kanban.repository';
+import { SnackbarsService } from '../../shared-module/services/snackbars.service';
 
 @Injectable()
 export class KanbanEffects {
   constructor(
     private actions$: Actions,
     private kanbanRepository: KanbanRepository,
+    private snackbarsService: SnackbarsService,
   ) {}
 
   loadColumns$ = createEffect(() => this.actions$.pipe(
@@ -18,7 +20,10 @@ export class KanbanEffects {
     mergeMap(() => this.kanbanRepository.loadColumns()
       .pipe(
         map((next) => KanbanActions.loadColumnsSucc({ columns: next.data.columns })),
-        catchError(() => EMPTY),
+        catchError(() => {
+          this.snackbarsService.error('Ошибка при загрузке колонок', 'Колонки');
+          return EMPTY;
+        }),
       )),
   ));
 
@@ -27,7 +32,10 @@ export class KanbanEffects {
     mergeMap((payload) => this.kanbanRepository.loadColumnById(payload.id)
       .pipe(
         map((next) => KanbanActions.loadColumnByIdSucc({ column: next.data.column })),
-        catchError(() => EMPTY),
+        catchError(() => {
+          this.snackbarsService.error('Ошибка при загрузке колонки', 'Колонка');
+          return EMPTY;
+        }),
       )),
   ));
 
@@ -36,7 +44,10 @@ export class KanbanEffects {
     mergeMap(() => this.kanbanRepository.loadCards()
       .pipe(
         map((next) => KanbanActions.loadCardsSucc({ cards: next.data.cards })),
-        catchError(() => EMPTY),
+        catchError(() => {
+          this.snackbarsService.error('Ошибка при загрузке карточек', 'Карточки');
+          return EMPTY;
+        }),
       )),
   ));
 
@@ -45,7 +56,10 @@ export class KanbanEffects {
     mergeMap((payload) => this.kanbanRepository.loadCardById(payload.id)
       .pipe(
         map((next) => KanbanActions.loadCardByIdSucc({ card: next.data.card })),
-        catchError(() => EMPTY),
+        catchError(() => {
+          this.snackbarsService.error('Ошибка при загрузке карточки', 'Карточка');
+          return EMPTY;
+        }),
       )),
   ));
 }

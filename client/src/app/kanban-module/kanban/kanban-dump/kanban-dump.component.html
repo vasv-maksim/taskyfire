@@ -10,7 +10,7 @@
       [cdkDropListConnectedTo]="getConnectedList()">
       <div class="cards">
         <div class="cards__list">
-          <div class="cards__card" 
+          <div class="cards__card"
             *ngFor="let card of group.cards" 
             cdkDrag [cdkDragData]="card">
             {{card.name}}
