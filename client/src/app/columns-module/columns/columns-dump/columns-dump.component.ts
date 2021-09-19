@@ -3,20 +3,18 @@ import {
 } from '@angular/core';
 
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Group } from '../../store/kanban.models';
+import { QGetColumns_columns } from 'src/codegen/generated/QGetColumns';
 
 @Component({
-  selector: 'tkr-kanban-dump',
-  templateUrl: './kanban-dump.component.html',
-  styleUrls: ['./kanban-dump.component.scss'],
+  selector: 'tkr-columns-dump',
+  templateUrl: './columns-dump.component.html',
+  styleUrls: ['./columns-dump.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KanbanDumpComponent {
-  @Input() groups: Group[] = [];
+export class ColumnsDumpComponent {
+  @Input() columns: QGetColumns_columns[] = [];
 
   @Output() dropCard = new EventEmitter();
-
-  ngOnInit() { }
 
   public dropCardDump(event: CdkDragDrop<string[]>): void {
     if (event.previousContainer === event.container) {
@@ -31,6 +29,6 @@ export class KanbanDumpComponent {
   }
 
   public getConnectedList(): string[] {
-    return this.groups.map((x) => x.id);
+    return this.columns.map((x) => x.id);
   }
 }

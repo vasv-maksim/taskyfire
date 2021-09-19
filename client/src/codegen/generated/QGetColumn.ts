@@ -7,10 +7,17 @@
 // GraphQL query operation: QGetColumn
 // ====================================================
 
+export interface QGetColumn_column_cards {
+  __typename: "Card";
+  id: string;
+  name: string;
+}
+
 export interface QGetColumn_column {
   __typename: "Column";
   id: string;
   name: string;
+  cards: QGetColumn_column_cards[];
 }
 
 export interface QGetColumn {

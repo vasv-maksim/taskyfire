@@ -3,17 +3,17 @@ import { Observable } from 'rxjs';
 import { ApolloQueryResult } from '@apollo/client/core';
 import { Apollo, ApolloBase } from 'apollo-angular';
 
-import { gqlGetCards, gqlGetColumnById, gqlGetColumns } from 'src/codegen/kanban.gql';
+import { gqlGetCards, gqlGetColumnById, gqlGetColumns } from 'src/codegen/columns.gql';
 import { QGetCards } from 'src/codegen/generated/QGetCards';
 import { QGetColumns } from 'src/codegen/generated/QGetColumns';
 import { QGetColumn, QGetColumnVariables } from 'src/codegen/generated/QGetColumn';
 import { QGetCard, QGetCardVariables } from 'src/codegen/generated/QGetCard';
-import { gqlGetCardById } from '../../../../codegen/kanban.gql';
+import { gqlGetCardById } from '../../../../codegen/columns.gql';
 
 @Injectable({
   providedIn: 'root',
 })
-export class KanbanRepository {
+export class ColumnsRepository {
   private apollo: ApolloBase;
 
   constructor(private apolloClient: Apollo) {

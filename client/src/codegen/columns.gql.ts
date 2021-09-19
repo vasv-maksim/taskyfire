@@ -23,6 +23,10 @@ export const gqlGetColumns = gql`
       columns {
         id
         name
+        cards {
+          id
+          name
+        }
       }
     }`;
 
@@ -31,5 +35,9 @@ export const gqlGetColumnById = gql`
       column(id: $id) {
         id
         name
+        cards {
+          id
+          name
+        }
       }
     }`;

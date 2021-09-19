@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KanbanDumpComponent } from './kanban-dump.component';
+import { ColumnsComponent } from './columns.component';
 
-describe('KanbanDumpComponent', () => {
-  let component: KanbanDumpComponent;
-  let fixture: ComponentFixture<KanbanDumpComponent>;
+describe('ColumnsComponent', () => {
+  let component: ColumnsComponent;
+  let fixture: ComponentFixture<ColumnsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [KanbanDumpComponent],
+      declarations: [ColumnsComponent],
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(KanbanDumpComponent);
+    fixture = TestBed.createComponent(ColumnsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

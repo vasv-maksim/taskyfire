@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { KanbanRepository } from './kanban.repository';
+import { ColumnsRepository } from './columns.repository';
 
-describe('KanbanRepositoryService', () => {
-  let service: KanbanRepository;
+describe('ColumnsRepositoryService', () => {
+  let service: ColumnsRepository;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(KanbanRepository);
+    service = TestBed.inject(ColumnsRepository);
   });
 
   it('should be created', () => {

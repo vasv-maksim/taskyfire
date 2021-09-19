@@ -1,5 +1,5 @@
 const {
-  GraphQLObjectType, GraphQLString, GraphQLNonNull,
+  GraphQLObjectType, GraphQLString, GraphQLNonNull, GraphQLList,
 } = require('graphql');
 
 const Card = new GraphQLObjectType({
@@ -16,6 +16,7 @@ const Column = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLNonNull(GraphQLString) },
     name: { type: GraphQLNonNull(GraphQLString) },
+    cards: { type: GraphQLNonNull(GraphQLList(GraphQLNonNull(Card))) },
   }),
 });
 
