@@ -6,8 +6,8 @@ import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { AppState } from 'src/app/store/app.models';
 import { QGetColumns_columns } from 'src/codegen/generated/QGetColumns';
 import { takeUntil } from 'rxjs/operators';
-import { ColumnsActions } from '../store/columns.action';
-import { ColumnsSelectors } from '../store/columns.selectors';
+import { ColumnsActions } from '../../store/columns.action';
+import { ColumnsSelectors } from '../../store/columns.selectors';
 
 @Component({
   selector: 'tkr-columns',
