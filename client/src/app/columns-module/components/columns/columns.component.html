@@ -3,5 +3,6 @@
   [isLoading]="isLoading$ | async"
   [isError]="isError$ | async"
   (onDrop)="dropCard($event)"
+  (onOpenCard)="openCard($event)"
   (onRenew)="renewColumns()">
 </tkr-columns-dumb>

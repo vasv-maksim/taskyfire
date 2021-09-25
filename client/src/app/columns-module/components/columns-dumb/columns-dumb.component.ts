@@ -4,6 +4,7 @@ import {
 
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { QGetColumns_columns } from 'src/codegen/generated/QGetColumns';
+import { Ids } from '../../store/columns.models';
 
 @Component({
   selector: 'tkr-columns-dumb',
@@ -19,6 +20,8 @@ export class ColumnsDumbComponent {
   @Input() isError: boolean = false;
 
   @Output() onDrop: EventEmitter<CdkDragDrop<string[]>> = new EventEmitter();
+
+  @Output() onOpenCard: EventEmitter<Ids> = new EventEmitter();
 
   @Output() onRenew: EventEmitter<void> = new EventEmitter();
 
@@ -40,5 +43,13 @@ export class ColumnsDumbComponent {
 
   public renew(): void {
     this.onRenew.emit();
+  }
+
+  public openCard(columnId: Uuid, cardId: Uuid): void {
+    const ids: Ids = {
+      columnId,
+      cardId,
+    };
+    this.onOpenCard.emit(ids);
   }
 }

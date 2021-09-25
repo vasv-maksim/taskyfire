@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { CardDialogComponent } from '../components/card-dialog/card-dialog.component';
 
 import { InfoDialogComponent } from '../components/info-dialog/info-dialog.component';
 
@@ -8,6 +9,12 @@ import { InfoDialogComponent } from '../components/info-dialog/info-dialog.compo
 })
 export class DialogsService {
   constructor(private dialog: MatDialog) { }
+
+  public openCard(): MatDialogRef<InfoDialogComponent, never> {
+    return this.dialog.open(CardDialogComponent, {
+      data: { },
+    });
+  }
 
   public info(title: string = 'Информация', massage='', icon='info'): MatDialogRef<InfoDialogComponent, never> {
     return this.dialog.open(InfoDialogComponent, {

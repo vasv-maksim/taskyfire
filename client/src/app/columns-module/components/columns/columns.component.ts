@@ -6,8 +6,10 @@ import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { AppState } from 'src/app/store/app.models';
 import { QGetColumns_columns } from 'src/codegen/generated/QGetColumns';
 import { takeUntil } from 'rxjs/operators';
+import { DialogsService } from 'src/app/shared-module/dialogs-module/service/dialogs.service';
 import { ColumnsActions } from '../../store/columns.action';
 import { ColumnsSelectors } from '../../store/columns.selectors';
+import { Ids } from '../../store/columns.models';
 
 @Component({
   selector: 'tkr-columns',
@@ -23,7 +25,10 @@ export class ColumnsComponent implements OnInit, OnDestroy {
 
   private readonly unsubscribe$: Subject<void> = new Subject();
 
-  constructor(private store: Store<AppState>) { }
+  constructor(
+    private store: Store<AppState>,
+    private dialogsService: DialogsService,
+  ) { }
 
   ngOnInit() {
     this.loadColumns();
@@ -33,6 +38,11 @@ export class ColumnsComponent implements OnInit, OnDestroy {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public dropCard(event: CdkDragDrop<string[]>): void {
     // this.store.dispatch(ColumnsActions.dropCard);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  public openCard(ids: Ids): void {
+    this.dialogsService.openCard();
   }
 
   public renewColumns(): void {
