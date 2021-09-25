@@ -6,17 +6,23 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { QGetColumns_columns } from 'src/codegen/generated/QGetColumns';
 
 @Component({
-  selector: 'tkr-columns-dump',
-  templateUrl: './columns-dump.component.html',
-  styleUrls: ['./columns-dump.component.scss'],
+  selector: 'tkr-columns-dumb',
+  templateUrl: './columns-dumb.component.html',
+  styleUrls: ['./columns-dumb.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ColumnsDumpComponent {
+export class ColumnsDumbComponent {
   @Input() columns: QGetColumns_columns[] = [];
 
-  @Output() dropCard = new EventEmitter();
+  @Input() isLoading: boolean = false;
 
-  public dropCardDump(event: CdkDragDrop<string[]>): void {
+  @Input() isError: boolean = false;
+
+  @Output() onDrop: EventEmitter<CdkDragDrop<string[]>> = new EventEmitter();
+
+  @Output() onRenew: EventEmitter<void> = new EventEmitter();
+
+  public dropCard(event: CdkDragDrop<string[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -25,10 +31,14 @@ export class ColumnsDumpComponent {
         event.previousIndex,
         event.currentIndex);
     }
-    this.dropCard.emit();
+    // this.onDrop.emit();
   }
 
   public getConnectedList(): string[] {
     return this.columns.map((x) => x.id);
+  }
+
+  public renew(): void {
+    this.onRenew.emit();
   }
 }

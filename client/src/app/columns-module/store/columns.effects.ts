@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { EMPTY } from 'rxjs';
+import { EMPTY, of } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 
 import { ColumnsActions } from './columns.action';
 import { ColumnsRepository } from './services/columns.repository';
-import { SnackbarsService } from '../../shared-module/services/snackbars.service';
+import { SnackbarsService } from '../../shared-module/material-module/services/snackbars.service';
 
 @Injectable()
 export class ColumnsEffects {
@@ -13,7 +13,7 @@ export class ColumnsEffects {
     private actions$: Actions,
     private columnsRepository: ColumnsRepository,
     private snackbarsService: SnackbarsService,
-  ) {}
+  ) { }
 
   loadColumns$ = createEffect(() => this.actions$.pipe(
     ofType(ColumnsActions.loadColumns),
@@ -21,8 +21,8 @@ export class ColumnsEffects {
       .pipe(
         map((next) => ColumnsActions.loadColumnsSucc({ columns: next.data.columns })),
         catchError(() => {
-          this.snackbarsService.error('Ошибка при загрузке колонок', 'Колонки');
-          return EMPTY;
+          this.snackbarsService.error('Ошибка загрузки', 'Колонки');
+          return of(ColumnsActions.loadColumnsErr());
         }),
       )),
   ));
@@ -33,7 +33,7 @@ export class ColumnsEffects {
       .pipe(
         map((next) => ColumnsActions.loadColumnByIdSucc({ column: next.data.column })),
         catchError(() => {
-          this.snackbarsService.error('Ошибка при загрузке колонки', 'Колонка');
+          this.snackbarsService.error('Ошибка загрузки', 'Колонка');
           return EMPTY;
         }),
       )),

@@ -45,7 +45,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 
-import { PaginatorLocalized } from './paginator-localized';
+import { PaginatorLocalized } from './config/paginator-localized';
 
 const MY_FORMATS = {
   parse: {
@@ -119,4 +119,4 @@ const MY_FORMATS = {
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],
 })
-export class MaterialModule {}
+export class MaterialModule { }

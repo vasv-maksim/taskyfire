@@ -19,9 +19,15 @@ export class ColumnsActions {
 
   public static loadColumns = createAction('[Columns] loadColumns');
 
+  public static loadColumnsErr = createAction('[Columns] loadColumns Err');
+
   public static loadColumnsSucc = createAction('[Columns] loadColumns Succ', props<{ columns: QGetColumns_columns[]}>());
 
   public static loadColumnById = createAction('[Columns] loadColumnById', props<{ id: Uuid}>());
 
   public static loadColumnByIdSucc = createAction('[Columns] loadColumnByIdSucc', props<{ column: QGetColumn_column}>());
+
+  public static moveCardInColumn = createAction('[Columns] moveCardInColumn', props<{ cards: QGetCard_card[], previousCardIndex: number, currentCardIndex: number}>());
+
+  public static moveCardBetweenColumns = createAction('[Columns] moveCardBetweenColumns', props<{ column: QGetColumn_column}>());
 }

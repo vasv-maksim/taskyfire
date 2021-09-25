@@ -3,18 +3,19 @@
 
 .spinner {
   &__backdrop {
-    position: absolute;
-    width: 100vh;
-    height: 100vh;
+    position: fixed;
     opacity: 0;
     pointer-events: none;
-    z-index: $z-index-5;
+    z-index: 7;
+    background-color: red;
+    width: 100vh;
+    height: 100vh;
   }
   
   &__spinner {
     position: absolute;
-    top:40%;
-    left: 50%;
+    top: 40%;
+    left: 45%;
     z-index: $z-index-4;  
   }
 }

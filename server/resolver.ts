@@ -1,4 +1,4 @@
-export {};
+export { };
 const { cardsData, columnsData } = require('./test-data');
 
 type Uuid = string;

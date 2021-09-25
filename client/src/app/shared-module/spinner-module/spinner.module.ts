@@ -4,7 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { MaterialModule } from '../material-module/material.module';
 import { spinnerFeatureKey } from './store/spinner.models';
 import { reducer } from './store/spinner.reducer';
-import { GlobalSpinnerComponent } from './global-spinner/global-spinner.component';
+import { GlobalSpinnerComponent } from './components/global-spinner/global-spinner.component';
 
 @NgModule({
   declarations: [

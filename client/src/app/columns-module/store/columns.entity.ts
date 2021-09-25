@@ -17,6 +17,12 @@ export const {
   selectTotal,
 } = adapter.getSelectors();
 
-export interface ColumnsState extends EntityState<QGetColumns_columns> {}
+export interface ColumnsState extends EntityState<QGetColumns_columns> {
+  isLoading: boolean;
+  isError: boolean;
+}
 
-export const initialState = adapter.getInitialState();
+export const initialState = adapter.getInitialState({
+  isLoading: false,
+  isError: false,
+});

@@ -1,4 +1,4 @@
-export {};
+export { };
 const {
   GraphQLObjectType, GraphQLSchema, GraphQLList, GraphQLString, GraphQLNonNull,
 } = require('graphql');

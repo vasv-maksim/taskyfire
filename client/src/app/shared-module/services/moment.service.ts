@@ -5,7 +5,7 @@ import moment from 'moment';
   providedIn: 'root',
 })
 export class MomentService {
-  public day(time: Date | string): string {
+  public dayMonthYear(time: Date | string): string {
     const momentDate = moment(time);
     return momentDate.format('DD.MM.YYYY');
   }

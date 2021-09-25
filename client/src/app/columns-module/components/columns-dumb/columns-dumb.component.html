@@ -1,0 +1,80 @@
+<div class="columns">
+  <ng-container *ngTemplateOutlet="isLoading ? loading : loaded"></ng-container>
+
+  <ng-template #loading>
+    <tkr-global-spinner></tkr-global-spinner>
+  </ng-template>
+
+  <ng-template #loaded>
+    <ng-container *ngTemplateOutlet="isError ? error : success"></ng-container>
+  </ng-template>
+
+  <ng-template #error>
+    <div class="error">
+      <div class="error__container">
+        <div class="error__text">
+          Ошибка загрузки!
+          <div>
+            <mat-icon class="error__icon"
+              aria-hidden="false" aria-label="error">
+              error
+            </mat-icon>
+          </div>
+        </div>
+        <button class="error__button" 
+          mat-raised-button color="primary"
+          (click)="renew()">
+          Обновить
+          <mat-icon
+            class="error__button-icon"
+            aria-hidden="false" aria-label="restart_alt">
+            restart_alt
+          </mat-icon>
+        </button>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #success>
+    <ng-container *ngIf="columns.length !== 0; else empty">
+      <div class="column" *ngFor="let column of columns"> 
+        <div class="column__header">
+          <div class="column__title">{{column.name}}</div>
+        </div>
+        <div cdkDropList class="column__content" 
+          id={{column.id}}
+          [cdkDropListData]="column.cards" 
+          (cdkDropListDropped)="dropCard($event)"
+          [cdkDropListConnectedTo]="getConnectedList()">
+          <div class="cards">
+            <div class="cards__list">
+              <div class="cards__card"
+                *ngFor="let card of column.cards" 
+                cdkDrag [cdkDragData]="card">
+                {{card.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #empty>
+    <div class="error">
+      <div class="error__container">
+        <div class="error__text">
+          Список колонок пуст
+          <div>
+            <mat-icon class="error__icon" 
+              aria-hidden="false" aria-label="warning">
+              warning
+            </mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+

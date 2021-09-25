@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ColumnsDumpComponent } from './columns-dump.component';
+import { ColumnsDumbComponent } from './columns-dumb.component';
 
 describe('ColumnDumpComponent', () => {
-  let component: ColumnsDumpComponent;
-  let fixture: ComponentFixture<ColumnsDumpComponent>;
+  let component: ColumnsDumbComponent;
+  let fixture: ComponentFixture<ColumnsDumbComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ColumnsDumpComponent],
+      declarations: [ColumnsDumbComponent],
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ColumnsDumpComponent);
+    fixture = TestBed.createComponent(ColumnsDumbComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

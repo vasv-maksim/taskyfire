@@ -5,22 +5,22 @@ import { Injectable } from '@angular/core';
 })
 export class FioService {
   public fullFio(first: string, second: string, last: string): string {
-    return `${this.capitalize(last)} ${this.capitalize(first)} ${this.capitalize(second)}`; // Иванов Иван Иванович
+    return `${this.capitalizeWord(last)} ${this.capitalizeWord(first)} ${this.capitalizeWord(second)}`; // Иванов Иван Иванович
   }
 
   public shortFio(first: string, second: string, last: string): string {
-    return `${this.capitalize(last)} ${first[0].toUpperCase()}.${second[0].toUpperCase()}.`; // Иванов И.И.
+    return `${this.capitalizeWord(last)} ${first[0].toUpperCase()}.${second[0].toUpperCase()}.`; // Иванов И.И.
   }
 
   public fullFamilyAndName(first: string, last: string): string {
-    return `${this.capitalize(last)} ${this.capitalize(first)}`; // Иванов Иван
+    return `${this.capitalizeWord(last)} ${this.capitalizeWord(first)}`; // Иванов Иван
   }
 
   public shortFamilyAndName(first: string, last: string): string {
-    return `${this.capitalize(last)} ${first[0].toUpperCase()}.`; // Иванов И.
+    return `${this.capitalizeWord(last)} ${first[0].toUpperCase()}.`; // Иванов И.
   }
 
-  private capitalize(word: string): string {
+  private capitalizeWord(word: string): string {
     return word[0].toUpperCase() + word.slice(1);
   }
 }

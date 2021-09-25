@@ -6,7 +6,7 @@ describe('ColumnsRepositoryService', () => {
   let service: ColumnsRepository;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({ });
     service = TestBed.inject(ColumnsRepository);
   });
 
