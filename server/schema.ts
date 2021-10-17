@@ -1,12 +1,12 @@
 export { };
 const {
-  GraphQLObjectType, GraphQLSchema, GraphQLList, GraphQLString, GraphQLNonNull,
+  GraphQLObjectType, GraphQLSchema, GraphQLList, GraphQLString, GraphQLNonNull, GraphQLBoolean,
 } = require('graphql');
 
 const {
-  cards, columns, cardById, columnById,
+  cards, columns, cardById, columnById, dropCard,
 } = require('./resolver');
-const { Card, Column } = require('./types');
+const { Card, Column, Drop } = require('./types');
 
 const rootQuery = new GraphQLObjectType({
   name: 'RootQuery',
@@ -36,6 +36,20 @@ const rootQuery = new GraphQLObjectType({
   },
 });
 
+const Mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    dropCard: {
+      type: new GraphQLNonNull(GraphQLBoolean),
+      description: 'Change card order and column',
+      args: {
+        drop: { type: GraphQLNonNull(Drop) },
+      },
+      resolve: (parent: any, args: any) => dropCard(args.drop),
+    },
+  },
+});
+
 module.exports = {
-  schema: new GraphQLSchema({ query: rootQuery }),
+  schema: new GraphQLSchema({ query: rootQuery, mutation: Mutation }),
 };

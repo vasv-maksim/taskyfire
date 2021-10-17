@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
-import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 import { AppState } from 'src/app/store/app.models';
 import { QGetColumns_columns } from 'src/codegen/generated/QGetColumns';
@@ -36,9 +35,32 @@ export class ColumnsComponent implements OnInit, OnDestroy {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  public dropCard(event: CdkDragDrop<string[]>): void {
-    // this.store.dispatch(ColumnsActions.dropCard);
+  public dropCard(drop: any): void {
+    // const dropedColumns: QGetColumns_columns[] = [];
+
+    // const column = this.columns.find((x) => x.id === drop.fromColumnId);
+    // if (column) {
+    //   const cards = column.cards.filter((x) => x.order === drop.fromOrder);
+    // }
+    // this.store.dispatch(ColumnsActions.loadColumnsSucc({ columns: dropedColumns }));
+    // this.store.dispatch(ColumnsActions.dropCard({ drop }));
   }
+
+  // private reorderCard(drop: Drop) {
+  //   if (drop.fromOrder === drop.toOrder) {
+  //     return;
+  //   }
+
+  //   // card downed
+  //   if (drop.fromOrder < drop.toOrder) {
+
+  //   }
+
+  //   // card upped
+  //   if (drop.fromOrder > drop.toOrder) {
+
+  //   }
+  // }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public openCard(ids: Ids): void {

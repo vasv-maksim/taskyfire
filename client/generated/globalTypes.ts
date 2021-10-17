@@ -8,6 +8,7 @@
 //==============================================================
 
 export interface Drop {
+  cardId: string;
   fromColumnId: string;
   toColumnId: string;
   fromOrder: number;

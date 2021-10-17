@@ -11,6 +11,7 @@ export interface QGetColumns_columns_cards {
   __typename: "Card";
   id: string;
   name: string;
+  order: number;
 }
 
 export interface QGetColumns_columns {

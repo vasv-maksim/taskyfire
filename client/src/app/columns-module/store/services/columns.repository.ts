@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApolloQueryResult } from '@apollo/client/core';
+import { ApolloQueryResult, FetchResult } from '@apollo/client/core';
 import { Apollo, ApolloBase } from 'apollo-angular';
 
-import { gqlGetCards, gqlGetColumnById, gqlGetColumns } from 'src/codegen/columns.gql';
+import {
+  gqlGetCards, gqlGetColumnById, gqlGetColumns, gqlDropCard,
+} from 'src/codegen/columns.gql';
 import { QGetCards } from 'src/codegen/generated/QGetCards';
 import { QGetColumns } from 'src/codegen/generated/QGetColumns';
 import { QGetColumn, QGetColumnVariables } from 'src/codegen/generated/QGetColumn';
 import { QGetCard, QGetCardVariables } from 'src/codegen/generated/QGetCard';
+import { MDropCard, MDropCardVariables } from 'src/codegen/generated/MDropCard';
+import { Drop } from 'generated/globalTypes';
 import { gqlGetCardById } from '../../../../codegen/columns.gql';
 
 @Injectable({
@@ -42,6 +46,15 @@ export class ColumnsRepository {
       query: gqlGetColumnById,
       variables: {
         id,
+      },
+    });
+  }
+
+  public dropCard(drop: Drop): Observable<FetchResult<MDropCard>> {
+    return this.apollo.mutate<MDropCard, MDropCardVariables>({
+      mutation: gqlDropCard,
+      variables: {
+        drop,
       },
     });
   }

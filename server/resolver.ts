@@ -12,6 +12,14 @@ interface ICard {
   id: Uuid;
   columnId: Uuid;
   name: string;
+  order: number;
+}
+
+interface IDrop {
+  fromColumnId: Uuid;
+  toColumnId: Uuid;
+  fromOrder: number;
+  toOrder: number;
 }
 
 interface IColumnsCarded extends IColumn {
@@ -35,5 +43,10 @@ module.exports = {
   },
   columns(): IColumnsCarded {
     return columnsData.map((x: IColumn) => ({ ...x, cards: getColumnCards(x.id) }));
+  },
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  dropCard(drop: IDrop): boolean {
+    return true;
   },
 };

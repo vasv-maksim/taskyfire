@@ -3,21 +3,19 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
+import { Drop } from "./../../../generated/globalTypes";
+
 // ====================================================
-// GraphQL query operation: QGetCards
+// GraphQL mutation operation: MDropCard
 // ====================================================
 
-export interface QGetCards_cards {
-  __typename: "Card";
-  id: string;
-  name: string;
-  columnId: string;
-  order: number;
+export interface MDropCard {
+  /**
+   * Change card order and column
+   */
+  dropCard: boolean;
 }
 
-export interface QGetCards {
-  /**
-   * List of all cards
-   */
-  cards: QGetCards_cards[];
+export interface MDropCardVariables {
+  drop: Drop;
 }

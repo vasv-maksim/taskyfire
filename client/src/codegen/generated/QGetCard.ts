@@ -12,6 +12,7 @@ export interface QGetCard_card {
   id: string;
   name: string;
   columnId: string;
+  order: number;
 }
 
 export interface QGetCard {

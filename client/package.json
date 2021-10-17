@@ -6,7 +6,7 @@
     "prodmod": "cross-env DEV_MOD=prod ng serve --prod --aot --proxy-config proxy.conf.json ",
     "build": "cross-env DEV_MOD=prod ng build --prod --aot --build-optimizer",
     "schema": "npx apollo service:download --endpoint=http://localhost:5000/graphql graphql-schema.json",
-    "codegen": "npx apollo codegen:generate --localSchemaFile=graphql-schema.json --target=typescript --globalTypesFile=src/codegen/globalTypes --tagName=gql generated --includes=src/codegen/\\*.gql.ts",
+    "codegen": "npx apollo codegen:generate --localSchemaFile=graphql-schema.json --target=typescript --tagName=gql generated --includes=src/codegen/\\*.gql.ts",
     "test": "ng test",
     "e2e": "ng e2e"
   },

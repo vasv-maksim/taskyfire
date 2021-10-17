@@ -1,5 +1,5 @@
 const {
-  GraphQLObjectType, GraphQLString, GraphQLNonNull, GraphQLList,
+  GraphQLObjectType, GraphQLString, GraphQLNonNull, GraphQLList, GraphQLInt, GraphQLInputObjectType,
 } = require('graphql');
 
 const Card = new GraphQLObjectType({
@@ -7,6 +7,7 @@ const Card = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLNonNull(GraphQLString) },
     name: { type: GraphQLNonNull(GraphQLString) },
+    order: { type: GraphQLNonNull(GraphQLInt) },
     columnId: { type: GraphQLNonNull(GraphQLString) },
   }),
 });
@@ -20,7 +21,19 @@ const Column = new GraphQLObjectType({
   }),
 });
 
+const Drop = new GraphQLInputObjectType({
+  name: 'Drop',
+  fields: () => ({
+    cardId: { type: GraphQLNonNull(GraphQLString) },
+    fromColumnId: { type: GraphQLNonNull(GraphQLString) },
+    toColumnId: { type: GraphQLNonNull(GraphQLString) },
+    fromOrder: { type: GraphQLNonNull(GraphQLInt) },
+    toOrder: { type: GraphQLNonNull(GraphQLInt) },
+  }),
+});
+
 module.exports = {
   Card,
   Column,
+  Drop,
 };

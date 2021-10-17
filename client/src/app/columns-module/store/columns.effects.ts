@@ -38,4 +38,16 @@ export class ColumnsEffects {
         }),
       )),
   ));
+
+  dropCard$ = createEffect(() => this.actions$.pipe(
+    ofType(ColumnsActions.dropCard),
+    mergeMap((payload) => this.columnsRepository.dropCard(payload.drop)
+      .pipe(
+        map(() => ColumnsActions.dropCardSucc()),
+        catchError(() => {
+          this.snackbarsService.error('Не удалось переместить задачу', 'Колонка');
+          return of(ColumnsActions.dropCardErr());
+        }),
+      )),
+  ));
 }
