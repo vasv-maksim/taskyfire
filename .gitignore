@@ -12,7 +12,7 @@
 # production
 /build
 /dist
-/server/config/conf.dev.js
+/server/config/config.dev.ts
 
 # misc
 .DS_Store
