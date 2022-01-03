@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ColumnsModule } from './columns-module/columns.module';
 import { SharedModule } from './shared-module/shared.module';
 
-import { AppComponent } from './components/app/app.component';
+import { AppComponent } from './components/app.component';
 import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
