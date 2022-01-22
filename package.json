@@ -26,6 +26,7 @@
     "express-graphql": "^0.12.0",
     "graphql": "^15.5.1",
     "mongoose": "^6.0.11",
+    "ng-mocks": "^13.0.0",
     "ts-node": "^10.1.0"
   },
   "devDependencies": {

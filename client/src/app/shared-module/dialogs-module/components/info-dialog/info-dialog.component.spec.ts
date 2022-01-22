@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InfoDialogComponent } from './info-dialog.component';
@@ -9,6 +10,7 @@ describe('InfoDialogComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [InfoDialogComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
       .compileComponents();
   });
@@ -19,7 +21,7 @@ describe('InfoDialogComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

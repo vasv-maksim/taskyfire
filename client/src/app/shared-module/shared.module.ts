@@ -12,7 +12,6 @@ import { DialogsModule } from './dialogs-module/dialogs.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-
     MaterialModule,
     SpinnerModule,
     GraphQLModule,

@@ -13,7 +13,7 @@ export class PaginatorLocalized extends MatPaginatorIntl {
   // eslint-disable-next-line func-names
   public getRangeLabel = function (page: number, pageSize: number, length: number): string {
     if (length === 0 || pageSize === 0) {
-      return `0 od ${length}`;
+      return `0 из ${length}`;
     }
     length = Math.max(length, 0);
     const startIndex = page * pageSize;
