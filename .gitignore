@@ -12,7 +12,6 @@
 # production
 /build
 /dist
-/server/config/config.dev.ts
 
 # misc
 .DS_Store

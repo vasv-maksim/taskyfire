@@ -14,7 +14,7 @@ async function connectDB() {
   } catch (e: any) {
     // eslint-disable-next-line no-console
     console.log('Error:', e.message);
-    process.exit(1);
+    // process.exit(1);
   }
 }
 
